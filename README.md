@@ -48,16 +48,16 @@ Support [GitHub-style alerts](https://github.com/orgs/community/discussions/1692
 npm i remark-gh-alerts
 ```
 
-```js
+```ts
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
-import remarkGhAlerts from 'remark-gh-alerts'
+import remarkGithubAlerts from 'remark-gh-alerts'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 
 const file = await unified()
   .use(remarkParse)
-  .use(remarkGhAlerts)
+  .use(remarkGithubAlerts)
   .use(remarkRehype)
   .use(rehypeStringify)
   .process(await fs.readFile('./input.md'))
@@ -78,12 +78,12 @@ to the following HTML:
 
 ```html
 <div class="markdown-alert markdown-alert-note">
-  <p class="markdown-alert-title" dir="auto"><span style="--mga-icon: url([data uri])"></span>Note</p><p>
+  <p class="markdown-alert-title" dir="auto"><span class="octicon octicon-note" style="--oct-icon: url([data uri])"></span>Note</p><p>
   Highlights information that users should take into account, even when skimming.</p>
 </div>
 ```
 
-[data uri] 为对svg图片进行处理后的，可供css使用的图片数据
+`[data uri]` is a picture data that after processing svg picture can be used by css.
 
 Which is different with the GitHub's output.
 
@@ -103,9 +103,36 @@ You might change `github-colors-dark-media.css` to `github-colors-dark-class.css
 
 Refer to the [source code](./styles) for more details.
 
+### Next MDX
+
+You just need to add the plugin to your `next.config.mjs`:
+
+```ts
+import remarkGithubAlerts from 'remark-gh-alerts'
+import createMDX from '@next/mdx'
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Configure `pageExtensions`` to include MDX files
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  // Optionally, add any other Next.js config below
+}
+
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+  options: {
+    remarkPlugins: [remarkGithubAlerts],
+    rehypePlugins: [],
+  },
+})
+
+// Merge MDX config with Next.js config
+export default withMDX(nextConfig)
+```
+
 ## License
 
-[MIT](./LICENSE) License © 2023-PRESENT [Qhan W](https://github.com/qhanw)
+[MIT](./LICENSE) License © 2024-PRESENT [Qhan W](https://github.com/qhanw)
 
 <!-- Badges -->
 
