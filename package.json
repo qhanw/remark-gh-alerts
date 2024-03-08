@@ -1,7 +1,7 @@
 {
   "name": "remark-gh-alerts",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Support GitHub-style alerts for remark",
   "author": "Qhan W <whenhan@foxmail.com>",
   "license": "MIT",
