@@ -1,0 +1,80 @@
+{
+  "name": "remark-gh-alerts",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Support GitHub-style alerts for remark",
+  "author": "Qhan W <whenhan@foxmail.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/qhanw",
+  "homepage": "https://github.com/qhanw/remark-gh-alerts#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qhanw/remark-gh-alerts.git"
+  },
+  "bugs": "https://github.com/qhanw/remark-gh-alerts/issues",
+  "keywords": [
+    "remark",
+    "remark-alerts",
+    "remark-gh-alerts",
+    "remark-github-alerts",
+    "github-favored-markdown"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./styles/*": "./styles/*"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist",
+    "styles"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint .",
+    "prepublishOnly": "nr build",
+    "release": "bumpp && npm publish",
+    "start": "esno src/index.ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepare": "simple-git-hooks"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.8.0",
+    "@types/mdast": "^4.0.3",
+    "@types/node": "^20.11.25",
+    "bumpp": "^9.4.0",
+    "eslint": "^8.57.0",
+    "esno": "^4.7.0",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "simple-git-hooks": "^2.10.0",
+    "typescript": "^5.4.2",
+    "unbuild": "^2.0.0",
+    "unified": "^11.0.4",
+    "unist-util-visit": "^5.0.0",
+    "vite": "^5.1.5",
+    "vitest": "^1.3.1"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
