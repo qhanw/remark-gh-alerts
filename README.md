@@ -6,9 +6,11 @@
 [![JSDocs][jsdocs-src]][jsdocs-href]
 [![License][license-src]][license-href]
 
-Fork from [markdown-it-github-alerts](https://github.com/markdown-it/markdown-it)
+Fork from [markdown-it-github-alerts](https://github.com/markdown-it/markdown-it).
 
-Support [GitHub-style alerts](https://github.com/orgs/community/discussions/16925) for [remark](https://github.com/remarkjs/remark).
+Support [GitHub-style alerts](https://github.com/orgs/community/discussions/16925) for [remark](https://github.com/remarkjs/remark), and replace the SVG dom node with pure css.
+
+Here, the solution for replacing the SVG dom node with pure CSS comes from the article " Icons in Pure CSS " by Antfu.
 
 > [!NOTE]
 > Highlights information that users should take into account, even when skimming.
@@ -105,7 +107,7 @@ Refer to the [source code](./styles) for more details.
 
 ### Next MDX
 
-You just need to add the plugin to your `next.config.mjs`:
+You just need to add the plugin to your `next.config.js`:
 
 ```ts
 import remarkGithubAlerts from 'remark-gh-alerts'
