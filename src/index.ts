@@ -131,7 +131,7 @@ const remarkGithubAlerts: Plugin<RemarkGitHubAlertsOptions[], Root> = (
                 hName: 'span',
                 hProperties: {
                   class: `octicon octicon-${type}`,
-                  style: { '--oct-icon': `url("${iconDataUri}")` },
+                  style: `--oct-icon: url("${iconDataUri}")`,
                 },
               },
               // 替换为 CSS 方式以兼容 mdx， 不用再安装额外的 rehype-raw 插件

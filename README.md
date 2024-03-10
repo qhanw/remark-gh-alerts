@@ -8,7 +8,7 @@
 
 Fork from [markdown-it-github-alerts](https://github.com/markdown-it/markdown-it).
 
-Support [GitHub-style alerts](https://github.com/orgs/community/discussions/16925) for [remark](https://github.com/remarkjs/remark), and replace the SVG dom node with pure css.
+Support [GitHub-style alerts](https://github.com/orgs/community/discussions/16925) for [remark](https://github.com/remarkjs/remark), and replace the SVG dom node with pure CSS.
 
 Here, the solution for replacing the SVG dom node with pure CSS comes from the article [Icons in Pure CSS](https://antfu.me/posts/icons-in-pure-css) by [antfu](https://github.com/antfu).
 

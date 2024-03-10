@@ -2,20 +2,18 @@
 
 import process from 'node:process'
 import { describe, expect, it } from 'vitest'
-import MarkdownIt from 'markdown-it'
+
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkHtml from 'remark-html'
 import cssBase from '../styles/github-base.css?raw'
 import cssColorsLight from '../styles/github-colors-light.css?raw'
 import cssColorsDark from '../styles/github-colors-dark-media.css?raw'
-import MarkdownItGitHubAlerts from '../src'
+import remarkGitHubAlerts from '../src'
 
 const CSS = `
-html {
-  font-family: sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
+html { font-family: sans-serif; }
 
 ${cssColorsLight}
 ${cssColorsDark}
@@ -32,20 +30,13 @@ describe('fixtures', () => {
         : it.skip
 
       run(`render ${path}`, async () => {
-        const md = new MarkdownIt({
-          html: true,
-          linkify: true,
-          xhtmlOut: true,
-        })
+        const html = await unified()
+          .use(remarkParse)
+          .use(remarkGitHubAlerts)
+          .use(remarkHtml, { sanitize: false })
+          .process(content)
 
-        md.use(MarkdownItGitHubAlerts, {
-          markers: '*',
-        })
-
-        const rendered = [
-          md.render(content),
-          `<style>${CSS}</style>`,
-        ].join('\n').trim().replace(/\r\n/g, '\n')
+        const rendered = [html, `<style>${CSS}</style>`].join('\n').trim().replace(/\r\n/g, '\n')
 
         expect(rendered)
           .toMatchFileSnapshot(path.replace('input', 'output').replace('.md', '.html'))
