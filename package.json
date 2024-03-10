@@ -1,7 +1,7 @@
 {
   "name": "remark-gh-alerts",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Support GitHub-style alerts for remark, and replace the SVG dom node with pure CSS.",
   "author": "Qhan W <whenhan@foxmail.com>",
   "license": "MIT",
