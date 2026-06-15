@@ -2,8 +2,8 @@
   "name": "remark-gh-alerts",
   "type": "module",
   "version": "1.0.0",
-  "packageManager": "pnpm@*",
-  "description": "Support GitHub-style alerts for remark, and replace the SVG dom node with pure CSS.",
+  "packageManager": "pnpm@10.33.4",
+  "description": "A remark plugin to support GitHub-style alerts with pure CSS styling.",
   "author": "Qhan W <whenhan@foxmail.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/qhanw",
@@ -15,30 +15,21 @@
   "bugs": "https://github.com/qhanw/remark-gh-alerts/issues",
   "keywords": [
     "remark",
+    "remark-plugin",
     "remark-alerts",
     "remark-gh-alerts",
-    "remark-github-alerts",
-    "github-favored-markdown"
+    "github-alerts",
+    "github-favored-markdown",
+    "markdown",
+    "unified"
   ],
   "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "default": "./dist/index.mjs"
     },
     "./styles/*": "./styles/*"
-  },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./dist/index.d.ts"
-      ]
-    }
   },
   "files": [
     "dist",
@@ -56,8 +47,8 @@
     "prepare": "simple-git-hooks"
   },
   "peerDependencies": {
-    "@types/mdast": "^4.0.3",
-    "unified": "^11.0.5"
+    "@types/mdast": ">=4.0.0",
+    "unified": ">=11.0.0"
   },
   "dependencies": {
     "unist-util-visit": "^5.1.0"
