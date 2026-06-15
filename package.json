@@ -1,7 +1,7 @@
 {
   "name": "remark-gh-alerts",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "packageManager": "pnpm@10.33.4",
   "description": "A remark plugin to support GitHub-style alerts with pure CSS styling.",
   "author": "Qhan W <whenhan@foxmail.com>",
