@@ -6,6 +6,12 @@
   font-style: normal;
 }
 
+.markdown-alert>p::before,
+.markdown-alert>p::after {
+  display: none;
+  content: '';
+}
+
 .markdown-alert>:first-child {
   margin-top: 0
 }
